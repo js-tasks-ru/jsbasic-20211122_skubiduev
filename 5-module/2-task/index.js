@@ -4,5 +4,4 @@ function toggleText() {
     let a = document.querySelector('#text');
     a.hidden = !a.hidden;
   });
-
 }
