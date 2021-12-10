@@ -3,7 +3,8 @@ function initCarousel() {
   const carouselArrowLeft = document.querySelector('.carousel__arrow_left'),
     carouselArrowRight = document.querySelector('.carousel__arrow_right'),
     carouselInner = document.querySelector('.carousel__inner'),
-    carouselSlideWidth = document.querySelector('.carousel__slide').offsetWidth;
+    carouselSlideWidth = document.querySelector('.carousel__slide').offsetWidth,
+    numberOfCarouselSlides = document.querySelectorAll('.carousel__slide').length;
 
   let carouselInnerPosition = 0;
 
@@ -21,7 +22,7 @@ function initCarousel() {
   carouselArrowRight.addEventListener('click', function () {
     carouselInner.style.transform = `translateX(${carouselInnerPosition - carouselSlideWidth}px)`;
     updateCarouselInnerPosition();
-    if (carouselInnerPosition === -carouselSlideWidth * 3) {
+    if (carouselInnerPosition === -carouselSlideWidth * (numberOfCarouselSlides - 1)) {
       this.style.display = 'none';
     }
     carouselArrowLeft.style.display = '';
