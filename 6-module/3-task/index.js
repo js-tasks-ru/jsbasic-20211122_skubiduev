@@ -29,7 +29,7 @@ export default class Carousel {
       const carouselArrowLeft = carouselElement.querySelector('.carousel__arrow_left'),
         carouselArrowRight = carouselElement.querySelector('.carousel__arrow_right'),
         carouselInner = carouselElement.querySelector('.carousel__inner'),
-        carouselSlideWidth = 500,
+        carouselSlide = carouselElement.querySelector('.carousel__slide'),
         numberOfCarouselSlides = carouselElement.querySelectorAll('.carousel__slide').length;
 
       let carouselInnerPosition = 0;
@@ -37,7 +37,7 @@ export default class Carousel {
       carouselElement.querySelector('.carousel__arrow_left').style.display = 'none';
 
       carouselArrowLeft.addEventListener('click', function () {
-        carouselInner.style.transform = `translateX(${carouselInnerPosition + carouselSlideWidth}px)`;
+        carouselInner.style.transform = `translateX(${carouselInnerPosition + carouselSlide.offsetWidth}px)`;
         updateCarouselInnerPosition();
         if (!carouselInnerPosition) {
           this.style.display = 'none';
@@ -46,9 +46,9 @@ export default class Carousel {
       });
 
       carouselArrowRight.addEventListener('click', function () {
-        carouselInner.style.transform = `translateX(${carouselInnerPosition - carouselSlideWidth}px)`;
+        carouselInner.style.transform = `translateX(${carouselInnerPosition - carouselSlide.offsetWidth}px)`;
         updateCarouselInnerPosition();
-        if (carouselInnerPosition === -carouselSlideWidth * (numberOfCarouselSlides - 1)) {
+        if (carouselInnerPosition === -carouselSlide.offsetWidth * (numberOfCarouselSlides - 1)) {
           this.style.display = 'none';
         }
         carouselArrowLeft.style.display = '';
