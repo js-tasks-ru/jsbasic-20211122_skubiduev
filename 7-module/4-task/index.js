@@ -1,5 +1,6 @@
 export default class StepSlider {
   constructor({steps, value = 0}) {
+    this.value = value;
     this.elem = document.createElement('div');
     this.elem.classList.add('slider');
     let htmlInsideElem = `<div class="slider__thumb"><span class="slider__value">${value}</span></div><div class="slider__progress"></div><div class="slider__steps">`,
